@@ -26,30 +26,30 @@ mvn spring-boot:run
 
 ## API Endpoints
 
-## Add a Single Product: POST /products
+### Add a Single Product: POST /products
 
 ### Request Body
-{
+<pre>{
   "name": "iPhone 14",
   "category": "Electronics",
   "price": 999.99,
   "inStock": true
-}
+} </pre>
 
 ### Sample Response
 
-{
+<pre>{
   "id": 1,
   "name": "iPhone 14",
   "category": "Electronics",
   "price": 999.99,
   "inStock": true
-}
+} </pre>
 
-## Add Multiple Products: POST /products/batch
+### Add Multiple Products: POST /products/batch
 
 ### Request Body
-[
+<pre>[
   {
     "name": "MacBook Pro",
     "category": "Electronics",
@@ -62,10 +62,10 @@ mvn spring-boot:run
     "price": 300,
     "inStock": false
   }
-]
+] </pre>
 
 ### Sample Response: 
-[
+<pre>[
   {
     "id": 2,
     "name": "MacBook Pro",
@@ -80,7 +80,7 @@ mvn spring-boot:run
     "price": 300,
     "inStock": false
   }
-]
+] </pre>
 
 ## Filter Products: GET /products
 
@@ -90,10 +90,10 @@ mvn spring-boot:run
 - Description: Partial match (case-insensitive), Exact match (case-insensitive), Minimum price, Maximum price, Filter by stock availability, Page number (default: 0), Page size (default: 10)
 
 ### Example Request
-- GET /products?category=electronics&minPrice=500&inStock=true&page=0&size=5
+<pre>GET /products?category=electronics&minPrice=500&inStock=true&page=0&size=5 </pre>
 
 ### Sample Response: 
-{
+<pre>{
   "content": [
     {
       "id": 1,
@@ -110,7 +110,7 @@ mvn spring-boot:run
   "totalElements": 1,
   "totalPages": 1,
   "last": true
-}
+} </pre>
 
 ## H2 Database Console
 - Access the H2 database at: http://localhost:8080/h2-console
