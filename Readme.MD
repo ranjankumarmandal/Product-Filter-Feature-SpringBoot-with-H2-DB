@@ -90,7 +90,7 @@ mvn spring-boot:run
   }
 ] </pre>
 
-## Filter Products: GET /products
+## Filter Products: GET /api/products
 
 ### Query Parameters
 - Param: name, category, minPrice, maxPrice, inStock, page, size
