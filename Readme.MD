@@ -15,7 +15,7 @@ A Spring Boot REST API for managing products with support for:
 # Test Evidences:
 
 Postman Call:
-![img_2.png](img_2.png)
+![img_4.png](img_4.png)
 
 Output (Data Stored in H2 DB):
 ![img_3.png](img_3.png)
