@@ -12,6 +12,14 @@ A Spring Boot REST API for managing products with support for:
 
 ---
 
+# Test Evidences:
+
+Postman Call:
+![img_2.png](img_2.png)
+
+Output (Data Stored in H2 DB):
+![img_3.png](img_3.png)
+
 ## 🚀 Getting Started
 
 ### 🔧 Prerequisites
@@ -26,27 +34,27 @@ mvn spring-boot:run
 
 ## API Endpoints
 
-### Add a Single Product: POST /products
+### Add a Single Product: POST /api/products
 
 ### Request Body
 <pre>{
-  "name": "iPhone 14",
+  "name": "Mac Book Laptop",
   "category": "Electronics",
-  "price": 999.99,
+  "price": 799.99,
   "inStock": true
 } </pre>
 
 ### Sample Response
 
 <pre>{
-  "id": 1,
-  "name": "iPhone 14",
-  "category": "Electronics",
-  "price": 999.99,
-  "inStock": true
+    "id": 2,
+    "name": "Mac Book Laptop",
+    "category": "Electronics",
+    "price": 799.99,
+    "inStock": true
 } </pre>
 
-### Add Multiple Products: POST /products/batch
+### Add Multiple Products: POST /api/products/bulk
 
 ### Request Body
 <pre>[
@@ -90,32 +98,64 @@ mvn spring-boot:run
 - Description: Partial match (case-insensitive), Exact match (case-insensitive), Minimum price, Maximum price, Filter by stock availability, Page number (default: 0), Page size (default: 10)
 
 ### Example Request
-<pre>GET /products?category=electronics&minPrice=500&inStock=true&page=0&size=5 </pre>
+<pre>http://localhost:8080/api/products?category=Electronics&priceMin=100&inStock=true&page=0&size=5 </pre>
 
 ### Sample Response: 
 <pre>{
-  "content": [
-    {
-      "id": 1,
-      "name": "iPhone 14",
-      "category": "Electronics",
-      "price": 999.99,
-      "inStock": true
-    }
-  ],
-  "pageable": {
-    "pageNumber": 0,
-    "pageSize": 5
-  },
-  "totalElements": 1,
-  "totalPages": 1,
-  "last": true
+    "content": [
+        {
+            "id": 1,
+            "name": "Smartphone",
+            "category": "Electronics",
+            "price": 499.99,
+            "inStock": true
+        },
+        {
+            "id": 2,
+            "name": "Mac Book Laptop",
+            "category": "Electronics",
+            "price": 799.99,
+            "inStock": true
+        },
+        {
+            "id": 3,
+            "name": "Monitor",
+            "category": "Electronics",
+            "price": 150.00,
+            "inStock": true
+        }
+    ],
+    "pageable": {
+        "pageNumber": 0,
+        "pageSize": 5,
+        "sort": {
+            "empty": false,
+            "sorted": true,
+            "unsorted": false
+        },
+        "offset": 0,
+        "paged": true,
+        "unpaged": false
+    },
+    "last": true,
+    "totalElements": 3,
+    "totalPages": 1,
+    "size": 5,
+    "number": 0,
+    "sort": {
+        "empty": false,
+        "sorted": true,
+        "unsorted": false
+    },
+    "first": true,
+    "numberOfElements": 3,
+    "empty": false
 } </pre>
 
 ## H2 Database Console
 - Access the H2 database at: http://localhost:8080/h2-console
 - Use the following settings:
-- JDBC URL: jdbc:h2:mem:testdb
+- JDBC URL: jdbc:h2:mem:productsdb
 - User: sa
 - Password: (leave blank)
 
